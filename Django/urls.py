@@ -19,9 +19,16 @@ from django.urls import path
 from django.http import HttpResponse
 
 def my_view(request):
-    return HttpResponse('Hello, your request was successful!')
+    return HttpResponse('Page My View')
+
+
+def home(request):
+    return HttpResponse('Página Inicial')
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('', home),
     path('my-view/', my_view),
+    path('admin/', admin.site.urls),
+    
 ]

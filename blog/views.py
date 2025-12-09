@@ -4,11 +4,22 @@ from django.http import HttpResponse
 # Create your views here.
 def home(request):
     print('Home blog')
-    return render(request,
-                  'blog/home.html'
+    context = {
+                    'text': 'Estamos na página Blog'
+                }
+    return render(
+                request,
+                'blog/home.html',
+                context
     )
 
 
 def exemplo(request):
     print('Exemplo')
-    return render(request, 'blog/exemplo.html')  
+    context = {
+                    'text': 'Estamos na página Exemplo blog'
+                }
+    return render(
+                request,
+                'blog/exemplo.html',
+                context)  

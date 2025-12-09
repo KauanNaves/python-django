@@ -6,7 +6,6 @@ from blog.data import posts
 def home(request):
     print('Home blog')
     context = {
-                    'text': 'Estamos na página Blog',
                     'posts': posts
                 }
     return render(

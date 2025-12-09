@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from blog.data import posts
+from django.http import Http404
 
 # Create your views here.
 def home(request):
@@ -13,6 +13,33 @@ def home(request):
                 'blog/home.html',
                 context
     )
+
+
+def post(request, id):
+    print('Post', id)
+
+    found_post = None
+
+    for post in posts:
+        print(post)
+        if post['id'] == id:
+            found_post = post
+            print(found_post)
+            break
+
+    if found_post is None:
+        raise Http404('Post not found')
+    
+    context = {
+        'post': found_post
+    }
+
+    return render(
+        request,
+        'blog/post.html',
+        context
+    )
+
 
 
 def exemplo(request):

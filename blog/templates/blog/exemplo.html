@@ -1,4 +1,5 @@
-{% include "global/partials/head.html" %}
+{% extends "global/base.html" %}
+{% block title %}Página Exemplo{% endblock title %}
+{% block main %}
     <h1>{{ text }}</h1>
-</body>
-</html>
+{% endblock main %}
